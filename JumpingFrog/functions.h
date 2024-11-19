@@ -2,54 +2,62 @@
 #define FUNCTIONS_H
 
 #define GAMEBOARDWIDTH 24
-#define GAMEBOARDHEIGHT 12
+#define GAMEBOARDHEIGHT 14
 #define ROAD_PAIR 1
 #define GRASS_PAIR 2
+#define FINISH_PAIR 3
 
 #include <curses.h>
 
-enum GameState {
-    START,
-    END
-};
+typedef enum {
+	PREP,
+	START,
+	END,
+	QUIT
+}GameState;
 
-struct FrogCoordinates {
-    int x;
-    int y;
-};
+typedef struct {
+	int x;
+	int y;
+} Coordinates;
 
-struct Frog
-{
-    float jumpCooldown;
-    struct FrogCoordinates frogCoords;
-};
+typedef struct {
+	float jumpCooldown;
+	Coordinates frogCoords;
+}Frog;
+
+typedef struct {
+	double remainingTime;
+	double initialTime;
+	bool isActive;
+	void (*onTimerComplete)(void);
+}MainTimer;
+
+typedef struct {
+	GameState gameState;
+	int difficultyLevel;
+	MainTimer mainTimer;
+	char obstacleCharacter;
+	Coordinates finishCords;
+	char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH];
+	Frog frog;
+}Game;
 
 
-struct Game {
-    enum GameState state;
-    int difficultyLevel;
-    int timer;
-    char obstacleCharacter;
-    char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH];
-    struct Frog frog;
-    int time;
-};
-struct timeval {
-    long tv_sec; /* seconds */
-    long tv_usec; /* microseconds */
-};
 
 //Main.c
 void initCurses(); //initialize curses
-int canJump(struct Game game, int userInput); //checks if the frog can make a jump
-void jump(int userInput, struct Game* game); //used for frog movement
+void initGame(Game* game); //Initialize game
+bool canJump(Game game, int userInput); //checks if the frog can make a jump
+void jump(int userInput, Game* game); //used for frog movement
+void checkForFinish(Game* game); //checks if player reached the finish
 
 //LoadSettings.c
-void loadSettings(struct Game* game); //Looads and applies settings from txt file
+bool loadSettings(Game* game); //Looads and applies settings from txt file
 
 //LoadMap.c
-int loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], struct FrogCoordinates* frogCoords); //Loads and display map from a txt file
+bool loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], Game* game); //Loads and display map from a txt file
 
 //MainTimer.c
-void startTimer(int time);
+
 #endif

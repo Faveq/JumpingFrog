@@ -2,7 +2,7 @@
 #include <curses.h>
 #include <stdio.h>
 
-int loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], struct FrogCoordinates* frogCoords) {
+bool loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], Game* game) {
 
 	FILE* file = fopen(mapName, "r");
 	if (!file) {
@@ -14,30 +14,42 @@ int loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], str
 	int ch;
 
 	while ((ch = fgetc(file)) != EOF) {
-		if (ch == '\n') {
+		if (x == GAMEBOARDWIDTH) {
 			y++;
 			x = 0;
 		}
-		else if (ch == 'S') {
-			frogCoords->x = x;
-			frogCoords->y = y;
-		}
 		else {
-			if (ch == '-') {
-				attron(COLOR_PAIR(ROAD_PAIR));
-				mvaddch(y, x, ch);
-				attroff(COLOR_PAIR(ROAD_PAIR));
+			if (ch == 'S') {
+				game->frog.frogCoords.y = y;
+				game->frog.frogCoords.x = x;
+				gameBoard[y][x] = ' ';
 			}
 			else {
-				attron(COLOR_PAIR(GRASS_PAIR));
-				mvaddch(y, x, ch);
-				attroff(COLOR_PAIR(GRASS_PAIR));
-
+				if (ch == 'F')
+				{
+					game->finishCords.y = y;
+					game->finishCords.x = x;
+					attron(COLOR_PAIR(FINISH_PAIR));
+					mvaddch(y, x, ' ');
+					attroff(COLOR_PAIR(FINISH_PAIR));
+				}
+				else if (ch == '-') {
+					attron(COLOR_PAIR(ROAD_PAIR));
+					mvaddch(y, x, ch);
+					attroff(COLOR_PAIR(ROAD_PAIR));
+				}
+				else {
+					attron(COLOR_PAIR(GRASS_PAIR));
+					mvaddch(y, x, ch);
+					attroff(COLOR_PAIR(GRASS_PAIR));
+				}
+				gameBoard[y][x] = ch;
 			}
-			gameBoard[y][x] = ch;
+			
 			x++;
 		}
 	}
+
 
 	fclose(file);
 	return 1;
