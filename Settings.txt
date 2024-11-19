@@ -1,0 +1,3 @@
+difficultyLevel = 1
+jumpCooldown = 0.01
+blocade = '&'

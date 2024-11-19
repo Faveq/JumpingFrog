@@ -1,0 +1,2 @@
+﻿  JumpingFrog.c
+C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\JumpingFrog\JumpingFrog.c(1,10): error C1083: Nie można otworzyć pliku dołącz: 'ncurses/ncurses.h': No such file or directory

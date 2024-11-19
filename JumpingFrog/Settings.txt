@@ -1,0 +1,4 @@
+difficultyLevel = 2
+jumpCooldown = 0.01
+blocade = &
+time = 10
