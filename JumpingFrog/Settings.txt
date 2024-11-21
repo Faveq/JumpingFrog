@@ -1,4 +1,4 @@
-difficultyLevel = 2
-jumpCooldown = 0.01
-blocade = &
+dL = 2
+jC = 0.01
+b = &
 time = 10

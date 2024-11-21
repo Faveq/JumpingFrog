@@ -34,5 +34,7 @@
   <ItemGroup>
     <Text Include="Settings.txt" />
     <Text Include="map1.txt" />
+    <Text Include="map2.txt" />
+    <Text Include="map3.txt" />
   </ItemGroup>
 </Project>

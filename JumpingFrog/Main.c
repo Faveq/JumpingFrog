@@ -1,5 +1,4 @@
 ﻿#include "functions.h"
-#include <curses.h>
 
 void initCurses() {
 	initscr();
@@ -7,46 +6,47 @@ void initCurses() {
 	start_color();
 	keypad(stdscr, TRUE);
 	curs_set(0);
-	init_pair(ROAD_PAIR, COLOR_WHITE, COLOR_BLACK);
-	init_pair(GRASS_PAIR, COLOR_BLACK, COLOR_GREEN);
-	init_pair(FINISH_PAIR, COLOR_BLACK, COLOR_RED);
+	init_pair(ROAD, COLOR_WHITE, COLOR_BLACK);
+	init_pair(GRASS, COLOR_BLACK, COLOR_GREEN);
+	init_pair(FINISH, COLOR_BLACK, COLOR_RED);
+	init_pair(FOOTER, COLOR_BLACK, COLOR_YELLOW);
 }
 
-void initGame(Game *game) {
-	game->gameState = PREP;
-	game->difficultyLevel = 0;
-	game->mainTimer = (MainTimer){ .remainingTime = 0, .initialTime = 0, .isActive = 0 };
-	game->obstacleCharacter = ' ';
-	game->finishCords = (Coordinates){ .y = 0, .x = 0 };
-	memset(game->gameBoard, ' ', sizeof(game->gameBoard));
-	game->frog.jumpCooldown = 0;
-	game->frog.frogCoords = (Coordinates){ .y = 0, .x = 0 };
+void initGame(Game *g) {
+	g->gameState = PREP;
+	g->difficultyLevel = 0;
+	g->mapNumber = 0;
+	g->mainTimer = (MainTimer){ .remainingTime = 0, .initialTime = 0, .isActive = 0 };
+	g->obstacleCharacter = ' ';
+	g->finishCoords = (Coordinates){ .y = 0, .x = 0 };
+	memset(g->gameBoard, ' ', sizeof(g->gameBoard));
+	g->frog.jumpCooldown = 0;
+	g->frog.coordinates = (Coordinates){ .y = 0, .x = 0 };
+}
+
+
+void activateColor(int colorPair) {
+	attron(COLOR_PAIR(colorPair));
+}
+
+void deactivateColor(int colorPair) {
+	attroff(COLOR_PAIR(colorPair));
 }
 
 bool canJump(Game game, int userInput) {
+	int ny = game.frog.coordinates.y,
+		nx = game.frog.coordinates.x;
+
 	switch (userInput) {
-	case KEY_UP:
-		if (game.frog.frogCoords.y > 0 &&
-			game.gameBoard[game.frog.frogCoords.y - 1][game.frog.frogCoords.x] != game.obstacleCharacter)
-			return 1;
-		break;
-	case KEY_DOWN:
-		if (game.frog.frogCoords.y < GAMEBOARDHEIGHT - 1 &&
-			game.gameBoard[game.frog.frogCoords.y + 1][game.frog.frogCoords.x] != game.obstacleCharacter)
-			return 1;
-		break;
-	case KEY_LEFT:
-		if (game.frog.frogCoords.x > 0 &&
-			game.gameBoard[game.frog.frogCoords.y][game.frog.frogCoords.x - 1] != game.obstacleCharacter)
-			return 1;
-		break;
-	case KEY_RIGHT:
-		if (game.frog.frogCoords.x < GAMEBOARDWIDTH - 1 &&
-			game.gameBoard[game.frog.frogCoords.y][game.frog.frogCoords.x + 1] != game.obstacleCharacter)
-			return 1;
-		break;
+	case KEY_UP: ny--; break;
+	case KEY_DOWN: ny++; break;
+	case KEY_LEFT: nx--; break;
+	case KEY_RIGHT: nx++; break;
 	}
-	return 0;
+
+	return (ny >= 0 && ny < GAMEBOARDHEIGHT &&
+		nx >= 0 && nx < GAMEBOARDWIDTH &&
+		game.gameBoard[ny][nx] != game.obstacleCharacter);
 }
 
 void changeFrogPositon(int prevY, int prevX, int y, int x, Game game)
@@ -54,54 +54,54 @@ void changeFrogPositon(int prevY, int prevX, int y, int x, Game game)
 	if (prevY != -1 && prevX != -1) {
 		char znak = game.gameBoard[prevY][prevX];
 		if (game.gameBoard[prevY][prevX] == '-') {
-			attron(COLOR_PAIR(ROAD_PAIR));
+			activateColor(ROAD);
 			mvprintw(prevY, prevX, "%c", znak);
-			attroff(COLOR_PAIR(ROAD_PAIR));
+			deactivateColor(ROAD);
 		}
 		else if (znak == ' ')
 		{
-			attron(COLOR_PAIR(GRASS_PAIR));
+			activateColor(GRASS);
 			mvprintw(prevY, prevX, "%c", znak);
-			attroff(COLOR_PAIR(GRASS_PAIR));
+			deactivateColor(GRASS);
 		}
 	}
 
-	if (game.gameBoard[game.frog.frogCoords.y][game.frog.frogCoords.x] == '-')
+	if (game.gameBoard[game.frog.coordinates.y][game.frog.coordinates.x] == '-')
 	{
-		attron(COLOR_PAIR(ROAD_PAIR));
-		mvprintw(game.frog.frogCoords.y, game.frog.frogCoords.x, "X");
-		attroff(COLOR_PAIR(ROAD_PAIR));
+		activateColor(ROAD);
+		mvprintw(game.frog.coordinates.y, game.frog.coordinates.x, "X");
+		deactivateColor(ROAD);
 	}
 	else
 	{
-		attron(COLOR_PAIR(GRASS_PAIR));
-		mvprintw(game.frog.frogCoords.y, game.frog.frogCoords.x, "X");
-		attroff(COLOR_PAIR(GRASS_PAIR));
+		activateColor(GRASS);
+		mvprintw(game.frog.coordinates.y, game.frog.coordinates.x, "X");
+		deactivateColor(GRASS);
 	}
 }
 
 void jump(int userInput, Game* game) {
-	int prevY = game->frog.frogCoords.y;
-	int prevX = game->frog.frogCoords.x;
+	int prevY = game->frog.coordinates.y;
+	int prevX = game->frog.coordinates.x;
 
-	mvprintw(game->frog.frogCoords.y, game->frog.frogCoords.x, " ");
+	mvprintw(game->frog.coordinates.y, game->frog.coordinates.x, " ");
 
 	switch (userInput) {
 	case KEY_UP:
-		if (canJump(*game, userInput)) game->frog.frogCoords.y--;
+		if (canJump(*game, userInput)) game->frog.coordinates.y--;
 		break;
 	case KEY_DOWN:
-		if (canJump(*game, userInput)) game->frog.frogCoords.y++;
+		if (canJump(*game, userInput)) game->frog.coordinates.y++;
 		break;
 	case KEY_LEFT:
-		if (canJump(*game, userInput)) game->frog.frogCoords.x--;
+		if (canJump(*game, userInput)) game->frog.coordinates.x--;
 		break;
 	case KEY_RIGHT:
-		if (canJump(*game, userInput)) game->frog.frogCoords.x++;
+		if (canJump(*game, userInput)) game->frog.coordinates.x++;
 		break;
 	}
 
-	changeFrogPositon(prevY, prevX, game->frog.frogCoords.y, game->frog.frogCoords.x, *game);
+	changeFrogPositon(prevY, prevX, game->frog.coordinates.y, game->frog.coordinates.x, *game);
 	
 	checkForFinish(game);
 	
@@ -109,10 +109,23 @@ void jump(int userInput, Game* game) {
 }
 
 void checkForFinish(Game *game) {
-	if (game->frog.frogCoords.x == game->finishCords.x && game->frog.frogCoords.y == game->finishCords.y)
+	if (game->frog.coordinates.x == game->finishCoords.x && game->frog.coordinates.y == game->finishCoords.y)
+	{
 		game->gameState = END;
+		if (game->mapNumber < MAPSCOUNT - 1)
+		{
+			game->mapNumber++;
+		}
+		else {
+			game->mapNumber = 0;
+		}
+	}
 }
-
+const char* maps[MAPSCOUNT] = {
+	"map1.txt",
+	"map2.txt",
+	"map3.txt"
+};
 int main() {
 	int userInput;
 	Game game;
@@ -125,25 +138,26 @@ int main() {
 		{
 			clear();
 			refresh();
-			if (loadMap("map1.txt", game.gameBoard, &game) && loadSettings(&game))
+			if (loadMap(maps[game.mapNumber], game.gameBoard, &game) && loadSettings(&game))
 			{
 
 				game.gameState = START;
-				//for (int i = 0; i < GAMEBOARDHEIGHT; i++) {
-				//    for (int j = 0; j < GAMEBOARDWIDTH; j++) {
-				//        mvprintw(i, j, "%c", game.gameBoard[i][j]);
+				//for (int i = 0; i < GBH; i++) {
+				//    for (int j = 0; j < GBW; j++) {
+				//        mvprintw(i, j, "%c", game.gBoard[i][j]);
 				//    }
 				//}
 				refresh();
 
-				mvprintw(game.frog.frogCoords.y, game.frog.frogCoords.x, "X");
-				changeFrogPositon(-1, -1, game.frog.frogCoords.y, game.frog.frogCoords.x, game);
+				mvprintw(game.frog.coordinates.y, game.frog.coordinates.x, "X");
+				changeFrogPositon(-1, -1, game.frog.coordinates.y, game.frog.coordinates.x, game);
 				refresh();
 
-				while (game.gameState == START) {
+				while (game.gameState== START) {
 					userInput = getch();
 
 					if (userInput == 'q' || userInput == 'Q') {
+						game.gameState = QUIT;
 						break;
 					}
 
