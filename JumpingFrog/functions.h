@@ -3,6 +3,8 @@
 
 #include <curses.h>	
 #include <stdio.h>
+#include <time.h>
+#include <locale.h>
 
 #define GAMEBOARDWIDTH 24
 #define GAMEBOARDHEIGHT 13
@@ -17,7 +19,8 @@
 typedef enum {
 	PREP,
 	START,
-	END,
+	WON,
+	LOST,
 	QUIT
 }GameState;
 
@@ -27,22 +30,23 @@ typedef struct {
 } Coordinates;
 
 typedef struct {
-	float jumpCooldown; //jump cooldown
+	float jumpCooldown;
 	Coordinates coordinates;
 }Frog;
 
 typedef struct {
-	double remainingTime;
-	double initialTime;
-	bool isActive;
-	void (*onTimerComplete)(void);
-}MainTimer;
+	time_t startTime;
+	int timeLimit;
+	int timeLeft;
+	int isRunning;
+	//void (*onTimerComplete)(void);
+}Timer;
 
 typedef struct {
 	GameState gameState;
 	int difficultyLevel;
 	int mapNumber;
-	MainTimer mainTimer;
+	Timer mainTimer;
 	char obstacleCharacter;
 	Coordinates finishCoords;
 	char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH];
@@ -68,5 +72,13 @@ bool loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], Ga
 void printFooter(); //prints footer
 
 //MainTimer.c
-
+void initTimer(Game* game);
+void setTimeLimit(Game* game, int timeLimit);
+void startTimer(Game* game);
+void stopTimer(Game* game);
+void resetTimer(Game* game);
+void updateTime(Game* game);
+int getTimeLeft(Game* game);
+int isTimerRunning(Game* game);
+void printTimer(Game* game);
 #endif

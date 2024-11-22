@@ -16,12 +16,13 @@ void initGame(Game *g) {
 	g->gameState = PREP;
 	g->difficultyLevel = 0;
 	g->mapNumber = 0;
-	g->mainTimer = (MainTimer){ .remainingTime = 0, .initialTime = 0, .isActive = 0 };
+	initTimer(g);
 	g->obstacleCharacter = ' ';
 	g->finishCoords = (Coordinates){ .y = 0, .x = 0 };
 	memset(g->gameBoard, ' ', sizeof(g->gameBoard));
 	g->frog.jumpCooldown = 0;
 	g->frog.coordinates = (Coordinates){ .y = 0, .x = 0 };
+
 }
 
 
@@ -75,6 +76,7 @@ void changeFrogPositon(int prevY, int prevX, int y, int x, Game game)
 	else
 	{
 		activateColor(GRASS);
+
 		mvprintw(game.frog.coordinates.y, game.frog.coordinates.x, "X");
 		deactivateColor(GRASS);
 	}
@@ -111,7 +113,7 @@ void jump(int userInput, Game* game) {
 void checkForFinish(Game *game) {
 	if (game->frog.coordinates.x == game->finishCoords.x && game->frog.coordinates.y == game->finishCoords.y)
 	{
-		game->gameState = END;
+		game->gameState = WON;
 		if (game->mapNumber < MAPSCOUNT - 1)
 		{
 			game->mapNumber++;
@@ -136,6 +138,7 @@ int main() {
 	{
 		if (game.gameState == PREP)
 		{
+			resetTimer(&game);
 			clear();
 			refresh();
 			if (loadMap(maps[game.mapNumber], game.gameBoard, &game) && loadSettings(&game))
@@ -153,15 +156,24 @@ int main() {
 				changeFrogPositon(-1, -1, game.frog.coordinates.y, game.frog.coordinates.x, game);
 				refresh();
 
-				while (game.gameState== START) {
+				while (game.gameState == START) {
+					if (!game.mainTimer.isRunning) {
+						startTimer(&game);
+					}
+					updateTime(&game);
+
+					timeout(100);
 					userInput = getch();
 
-					if (userInput == 'q' || userInput == 'Q') {
-						game.gameState = QUIT;
-						break;
+					if (userInput != ERR) {
+						if (userInput == 'q' || userInput == 'Q') {
+							game.gameState = QUIT;
+							break;
+						}
+						jump(userInput, &game);
 					}
 
-					jump(userInput, &game);
+					refresh();
 				}
 			}
 			else {
@@ -169,8 +181,9 @@ int main() {
 				mvprintw(5, 5, "FAILED TO LOAD THE MAP");
 			}
 		}
-		if (game.gameState == END)
+		if (game.gameState == WON)
 		{
+			stopTimer(&game);
 			clear();
 			mvprintw(7, 15, "YOU HAVE REACHED THE FINISH CONGRATS!!!");
 			mvprintw(8, 25, "press r for restart");
@@ -181,7 +194,30 @@ int main() {
 			{
 				game.gameState = PREP;
 			}
+			else if (userInput == 'q' || userInput == 'Q') {
+					game.gameState = QUIT;
+					break;
+				
+			}
 
+		}
+		else if (game.gameState == LOST)
+		{
+			stopTimer(&game);
+			clear();
+			mvprintw(7, 10, "YOU LOST");
+			mvprintw(8, 4, "press r for restart");
+			refresh();
+			userInput = getch();
+
+			if (userInput == 'r' || userInput == 'R')
+			{
+				game.gameState = PREP;
+			}else if (userInput == 'q' || userInput == 'Q') {
+				game.gameState = QUIT;
+				break;
+
+			}
 		}
 	}
 	endwin();
