@@ -16,15 +16,21 @@ void initGame(Game *g) {
 	g->gameState = PREP;
 	g->difficultyLevel = 0;
 	g->mapNumber = 0;
-	initTimer(g);
 	g->obstacleCharacter = ' ';
 	g->finishCoords = (Coordinates){ .y = 0, .x = 0 };
 	memset(g->gameBoard, ' ', sizeof(g->gameBoard));
 	g->frog.jumpCooldown = 0;
 	g->frog.coordinates = (Coordinates){ .y = 0, .x = 0 };
-
+	g->car.coordinates = (Coordinates){ .y = 1, .x = 0 };
+	g->car.direction = 1;
+	initTimer(g);
 }
 
+void resetGame(Game *g) {
+	g->frog.coordinates = (Coordinates){ .y = 0, .x = 0 };
+	g->car.coordinates = (Coordinates){ .y = 1, .x = 0 };
+	g->car.direction = 1;
+}
 
 void activateColor(int colorPair) {
 	attron(COLOR_PAIR(colorPair));
@@ -47,7 +53,8 @@ bool canJump(Game game, int userInput) {
 
 	return (ny >= 0 && ny < GAMEBOARDHEIGHT &&
 		nx >= 0 && nx < GAMEBOARDWIDTH &&
-		game.gameBoard[ny][nx] != game.obstacleCharacter);
+		game.gameBoard[ny][nx] != game.obstacleCharacter && 
+		game.gameBoard[ny][nx] != 'C');
 }
 
 void changeFrogPositon(int prevY, int prevX, int y, int x, Game game)
@@ -138,6 +145,7 @@ int main() {
 	{
 		if (game.gameState == PREP)
 		{
+			resetGame(&game);
 			resetTimer(&game);
 			clear();
 			refresh();
@@ -168,6 +176,9 @@ int main() {
 					if (userInput != ERR) {
 						if (userInput == 'q' || userInput == 'Q') {
 							game.gameState = QUIT;
+							break;
+						}else if (userInput == 'r' || userInput == 'R') {
+							game.gameState = PREP;
 							break;
 						}
 						jump(userInput, &game);

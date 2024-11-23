@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cars.c" />
     <ClCompile Include="functions.h" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LoadMap.c" />

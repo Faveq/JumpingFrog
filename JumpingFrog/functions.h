@@ -9,6 +9,7 @@
 #define GAMEBOARDWIDTH 24
 #define GAMEBOARDHEIGHT 13
 #define MAPSCOUNT 3
+
 #define ROAD 1
 #define GRASS 2
 #define FINISH 3
@@ -24,10 +25,16 @@ typedef enum {
 	QUIT
 }GameState;
 
+
 typedef struct {
 	int x;
 	int y;
 } Coordinates;
+
+typedef struct {
+	Coordinates coordinates;
+	int direction; // 1 is right, -1 is left
+}Car;
 
 typedef struct {
 	float jumpCooldown;
@@ -47,6 +54,7 @@ typedef struct {
 	int difficultyLevel;
 	int mapNumber;
 	Timer mainTimer;
+	Car car;
 	char obstacleCharacter;
 	Coordinates finishCoords;
 	char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH];
@@ -81,4 +89,11 @@ void updateTime(Game* game);
 int getTimeLeft(Game* game);
 int isTimerRunning(Game* game);
 void printTimer(Game* game);
+
+//Cars.c
+void moveCar(Game* game);
+void toggleCarDirection(Car* car);
+int checkForColision(Game* game);
+void printCar(Game* game);
+
 #endif

@@ -30,6 +30,7 @@ void resetTimer(Game* game) {
 }
 
 void updateTime(Game* game) {
+    moveCar(game);
     if (game->mainTimer.isRunning) {
         time_t currentTime = time(NULL);
         double elapsedSeconds = difftime(currentTime, game->mainTimer.startTime);

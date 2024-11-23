@@ -1,10 +1,2 @@
-﻿  functions.h
-  Main.c
-C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Main.c(22,2): warning C4013: 'memset' undefined; assuming extern returning int
-C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Main.c(144,20): warning C4090: 'function': different 'const' qualifiers
-  LoadMap.c
-  LoadSettings.c
-  MainTimer.c
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  MainTimer.c
   JumpingFrog.vcxproj -> C:\Users\batek\Documents\GitHub\JumpingFrog\x64\Debug\JumpingFrog.exe
