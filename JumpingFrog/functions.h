@@ -5,10 +5,12 @@
 #include <stdio.h>
 #include <time.h>
 #include <locale.h>
+#include <stdlib.h>
 
 #define GAMEBOARDWIDTH 24
 #define GAMEBOARDHEIGHT 13
 #define MAPSCOUNT 3
+#define ROADSCOUNT 5
 
 #define ROAD 1
 #define GRASS 2
@@ -34,6 +36,7 @@ typedef struct {
 typedef struct {
 	Coordinates coordinates;
 	int direction; // 1 is right, -1 is left
+	int speedMultiplier;
 }Car;
 
 typedef struct {
@@ -54,12 +57,17 @@ typedef struct {
 	int difficultyLevel;
 	int mapNumber;
 	Timer mainTimer;
-	Car car;
+	Car cars[ROADSCOUNT];
 	char obstacleCharacter;
 	Coordinates finishCoords;
 	char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH];
 	Frog frog;
 }Game;
+
+typedef struct {
+	int prevLine;
+	int carsNumber;
+} RoadsTracker;
 
 //Main.c
 void initCurses(); //initialize curses
@@ -74,9 +82,9 @@ void checkForFinish(Game* game); //checks if player reached the finish
 bool loadSettings(Game* game); //loads and applies settings from txt file
 
 //LoadMap.c
-bool checkForStart(char ch, int x, int y, char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], Game* game); //checks if loaded fileld is a start field
-void display(char ch, int y, int x); //displays loaded char with appropriate color
-bool loadMap(char mapName[], char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH], Game* game); //loads and display map from a txt file
+bool checkForStart(char ch, int x, int y, Game* game); //checks if loaded fileld is a start field
+void display(char ch, int y, int x, Game* game); //displays loaded char with appropriate color
+bool loadMap(char mapName[], Game* game); //loads and display map from a txt file
 void printFooter(); //prints footer
 
 //MainTimer.c
@@ -91,9 +99,12 @@ int isTimerRunning(Game* game);
 void printTimer(Game* game);
 
 //Cars.c
-void moveCar(Game* game);
+void moveCar(Game* game, int carId);
 void toggleCarDirection(Car* car);
-int checkForColision(Game* game);
-void printCar(Game* game);
+int checkForColision(Game* game, int carId);
+void printCar(Game* game, int carId, int prevX);
+void setCarLane(Car* car, int lane);
+void randomizeMultiplier(Game* game, int carId);
+void setUpCar(Game* game, int carId);
 
 #endif

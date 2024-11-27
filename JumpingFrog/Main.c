@@ -21,15 +21,19 @@ void initGame(Game *g) {
 	memset(g->gameBoard, ' ', sizeof(g->gameBoard));
 	g->frog.jumpCooldown = 0;
 	g->frog.coordinates = (Coordinates){ .y = 0, .x = 0 };
-	g->car.coordinates = (Coordinates){ .y = 1, .x = 0 };
-	g->car.direction = 1;
+	for (int i = 0; i < ROADSCOUNT; i++) {
+		g->cars[i].coordinates.x = 0;
+		g->cars[i].direction = 1;
+	}
 	initTimer(g);
 }
 
 void resetGame(Game *g) {
-	g->frog.coordinates = (Coordinates){ .y = 0, .x = 0 };
-	g->car.coordinates = (Coordinates){ .y = 1, .x = 0 };
-	g->car.direction = 1;
+	for (int i = 0; i < ROADSCOUNT; i++) {
+		g->cars[i].coordinates.x = 0;
+		g->cars[i].direction = 1;
+	}
+	memset(g->gameBoard, ' ', sizeof(g->gameBoard));
 }
 
 void activateColor(int colorPair) {
@@ -120,7 +124,6 @@ void jump(int userInput, Game* game) {
 void checkForFinish(Game *game) {
 	if (game->frog.coordinates.x == game->finishCoords.x && game->frog.coordinates.y == game->finishCoords.y)
 	{
-		game->gameState = WON;
 		if (game->mapNumber < MAPSCOUNT - 1)
 		{
 			game->mapNumber++;
@@ -128,6 +131,7 @@ void checkForFinish(Game *game) {
 		else {
 			game->mapNumber = 0;
 		}
+		game->gameState = WON;
 	}
 }
 const char* maps[MAPSCOUNT] = {
@@ -149,15 +153,19 @@ int main() {
 			resetTimer(&game);
 			clear();
 			refresh();
-			if (loadMap(maps[game.mapNumber], game.gameBoard, &game) && loadSettings(&game))
+			if (loadMap(maps[game.mapNumber], &game)&& loadSettings(&game))
 			{
 
 				game.gameState = START;
-				//for (int i = 0; i < GBH; i++) {
-				//    for (int j = 0; j < GBW; j++) {
-				//        mvprintw(i, j, "%c", game.gBoard[i][j]);
-				//    }
-				//}
+				for (int i = 0; i < ROADSCOUNT; i++)
+				{
+					setUpCar(&game, i);
+				}
+				for (int i = 0; i < GAMEBOARDHEIGHT; i++) {
+				    for (int j = 0; j < GAMEBOARDWIDTH; j++) {
+				        mvprintw(i + 16, j , "%c", game.gameBoard[i][j]);
+				    }
+				}
 				refresh();
 
 				mvprintw(game.frog.coordinates.y, game.frog.coordinates.x, "X");

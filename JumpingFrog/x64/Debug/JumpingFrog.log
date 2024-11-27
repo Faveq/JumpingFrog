@@ -1,2 +1,4 @@
-﻿  MainTimer.c
+﻿  Main.c
+C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Main.c(21,2): warning C4013: 'memset' undefined; assuming extern returning int
+C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Main.c(156,20): warning C4090: 'function': different 'const' qualifiers
   JumpingFrog.vcxproj -> C:\Users\batek\Documents\GitHub\JumpingFrog\x64\Debug\JumpingFrog.exe

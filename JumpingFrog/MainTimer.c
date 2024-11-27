@@ -30,7 +30,14 @@ void resetTimer(Game* game) {
 }
 
 void updateTime(Game* game) {
-    moveCar(game);
+    for (int i = 0; i < ROADSCOUNT; i++)
+    {
+        for (int j = 0; j < game->cars[i].speedMultiplier; j++)
+        {
+           moveCar(game, i);
+        }
+    }
+    
     if (game->mainTimer.isRunning) {
         time_t currentTime = time(NULL);
         double elapsedSeconds = difftime(currentTime, game->mainTimer.startTime);
