@@ -1,4 +1,4 @@
 difficultyLevel = 3
-jumpCooldown = 0.01
+jumpCooldown = 50
 blocade = &
 time = 90

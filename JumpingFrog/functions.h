@@ -40,7 +40,8 @@ typedef struct {
 }Car;
 
 typedef struct {
-	float jumpCooldown;
+	int jumpCooldown;
+	time_t lastJumpTime;
 	Coordinates coordinates;
 }Frog;
 
@@ -49,7 +50,6 @@ typedef struct {
 	int timeLimit;
 	int timeLeft;
 	int isRunning;
-	//void (*onTimerComplete)(void);
 }Timer;
 
 typedef struct {
@@ -77,6 +77,7 @@ void deactivateColor(int colorPair); //deactivates given colors
 bool canJump(Game game, int userInput); //checks if the frog can make a jump
 void jump(int userInput, Game* game); //used for frog movement
 void checkForFinish(Game* game); //checks if player reached the finish
+
 
 //LoadSettings.c
 bool loadSettings(Game* game); //loads and applies settings from txt file
