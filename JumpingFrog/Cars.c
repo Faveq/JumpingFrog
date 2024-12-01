@@ -2,7 +2,6 @@
 
 int choose_random(int firstCoord, int secondCoord) {
 	int choice = rand() % 2;
-
 	return (choice == 0) ? firstCoord : secondCoord;
 }
 
@@ -30,11 +29,8 @@ void moveCar(Game* game, int carId) {
 	game->gameBoard[game->cars[carId].coordinates.y][game->cars[carId].coordinates.x] = 'C';
 	
 
-	printCar(game, carId, prevX);
+	printCar(game->cars[carId].coordinates.y * ASSETHEIGHT, game->cars[carId].coordinates.x * ASSETWIDTH, game, prevX, carId);
 	checkForColision(game, carId);
-
-	//mvprintw(15, 0, "Car x: %d y: %d", game->cars[carId].coordinates.x, game->cars[carId].coordinates.y);
-	//mvprintw(16, 0, "GAMEBOARDWIDTH %d", GAMEBOARDWIDTH);
 }
 
 void toggleCarDirection(Car* car) {
@@ -48,24 +44,10 @@ int checkForColision(Game* game, int carId) {
 	}
 }
 
-void printCar(Game* game, int carId, int prevX) {
-	Car* car = &game->cars[carId];
-
-
-	if ((car->coordinates.x - car->direction) < GAMEBOARDWIDTH)
-	{
-		mvprintw(car->coordinates.y, prevX, "-");
-	}
-	mvprintw(car->coordinates.y, car->coordinates.x, "C");
-}
-
-void setCarLane(Car *car, int lane) {
-		car->coordinates.y = lane;
-}
-
 void randomizeMultiplier(Game *game, int carId) {
-	game->cars[carId].speedMultiplier = (rand() % (1 - game->difficultyLevel)) + 1;
+	game->cars[carId].speedMultiplier = rand() % game->difficultyLevel + 1;
 }
+
 void setUpCar(Game* game, int carId) {
 	radomizeStartSite(game, carId);
 	randomizeMultiplier(game, carId);

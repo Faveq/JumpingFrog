@@ -36,6 +36,8 @@ void updateTime(Game* game) {
         {
            moveCar(game, i);
         }
+        mvprintw(GAMEBOARDHEIGHT * ASSETHEIGHT, 0, "%d", game->cars[0].speedMultiplier);
+        
     }
     
     if (game->mainTimer.isRunning) {
@@ -62,6 +64,6 @@ int isTimerRunning(Game* game) {
 }
 
 void printTimer(Game* game) {
-    mvprintw(GAMEBOARDHEIGHT + 1, 1, "Time left: %02d", game->mainTimer.timeLeft);
+    mvprintw(GAMEBOARDHEIGHT * ASSETHEIGHT + 1, 1, "Time left: %02d", game->mainTimer.timeLeft);
     refresh();
 }

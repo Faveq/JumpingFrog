@@ -1,2 +1,3 @@
-﻿  LoadSettings.c
+﻿  Cars.c
+C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Cars.c(45,1): warning C4716: 'checkForColision': must return a value
   JumpingFrog.vcxproj -> C:\Users\batek\Documents\GitHub\JumpingFrog\x64\Debug\JumpingFrog.exe

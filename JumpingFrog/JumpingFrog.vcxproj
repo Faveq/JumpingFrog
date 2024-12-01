@@ -132,15 +132,21 @@
   <ItemGroup>
     <ClCompile Include="Cars.c" />
     <ClCompile Include="functions.h" />
+    <ClCompile Include="GameState.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LoadMap.c" />
     <ClCompile Include="LoadSettings.c" />
     <ClCompile Include="MainTimer.c" />
+    <ClCompile Include="AssetsHandler.c" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="map1.txt" />
-    <Text Include="map2.txt" />
-    <Text Include="map3.txt" />
+    <Text Include="assets\blocade.txt" />
+    <Text Include="assets\car.txt" />
+    <Text Include="assets\frog.txt" />
+    <Text Include="maps\map1.txt" />
+    <Text Include="maps\map2.txt" />
+    <Text Include="maps\map3.txt" />
+    <Text Include="assets\road.txt" />
     <Text Include="Settings.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

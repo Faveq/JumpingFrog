@@ -33,11 +33,21 @@
     <ClCompile Include="Cars.c">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="AssetsHandler.c">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.c">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Settings.txt" />
-    <Text Include="map1.txt" />
-    <Text Include="map2.txt" />
-    <Text Include="map3.txt" />
+    <Text Include="maps\map1.txt" />
+    <Text Include="maps\map2.txt" />
+    <Text Include="maps\map3.txt" />
+    <Text Include="assets\frog.txt" />
+    <Text Include="assets\car.txt" />
+    <Text Include="assets\road.txt" />
+    <Text Include="assets\blocade.txt" />
   </ItemGroup>
 </Project>

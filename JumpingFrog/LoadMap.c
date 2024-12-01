@@ -13,25 +13,29 @@ bool checkForStart(char ch, int x, int y, Game* game) {
 void display(char ch, int y, int x, Game* game, RoadsTracker *roadsTracker) {
 	if (ch == 'F') {
 		activateColor(FINISH);
-		mvaddch(y, x, ' ');
+		printGrass(y * ASSETHEIGHT, x * ASSETWIDTH, &game->assets);
 		deactivateColor(FINISH);
 	}
 	else if (ch == '-') {
 		activateColor(ROAD);
-		mvaddch(y, x, ch);
+		printRoad(y * ASSETHEIGHT, x * ASSETWIDTH, &game->assets);
 		deactivateColor(ROAD);
 		if (y != roadsTracker->prevLine)
 		{
 			roadsTracker->prevLine = y;
 			game->cars[roadsTracker->carsNumber].coordinates.y = roadsTracker->prevLine;
-			//setCarLane(&game->cars[laneNumber], laneNumber);
 			roadsTracker->carsNumber++;
 		}
 	}
-	else
+	else if(ch == ' ')
 	{
 		activateColor(GRASS);
-		mvaddch(y, x, ch);
+		printGrass(y * ASSETHEIGHT, x * ASSETWIDTH, &game->assets);
+		deactivateColor(GRASS);
+	}
+	else {
+		activateColor(GRASS);
+		printBlocade(y * ASSETHEIGHT, x * ASSETWIDTH, &game->assets);
 		deactivateColor(GRASS);
 	}
 }
@@ -74,8 +78,8 @@ void printFooter() {
 			mvprintw(j, i, " ");
 		}
 	}
-	//mvprintw(LINES - 2, 0, "Bartosz Œwierczyñski");
-	//mvprintw(LINES - 1, 0, "203825");
+	mvprintw(LINES - 2, 0, "Bartosz Œwierczyñski");
+	mvprintw(LINES - 1, 0, "203825");
 	deactivateColor(FOOTER);
 	refresh();
 }
