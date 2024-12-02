@@ -6,33 +6,44 @@ const char* maps[MAPSCOUNT] = {
 	"maps/map3.txt"
 };
 void handleStartState(Game* game) {
+	double currentTime = getCurrentTimeInMs();
+	double elapsedTime = currentTime - game->lastMove;
+
 	if (!game->mainTimer.isRunning) {
 		startTimer(game);
 	}
-
 	updateTime(game);
 
-	if (game->mainTimer.timeLeft % 10 == 5)
-	{
-		for (int i = 0; i < ROADSCOUNT; i++)
-		{
-			randomizeMultiplier(&game, i);
+	if (game->mainTimer.timeLeft % 10 == 5) {
+		for (int i = 0; i < ROADSCOUNT; i++) {
+			randomizeMultiplier(game, i);
 		}
+	}
+	if (elapsedTime > 70)
+	{
+		for (int i = 0; i < ROADSCOUNT; i++) {
+			moveCar(game, i);
+		}
+		game->lastMove = getCurrentTimeInMs();
 	}
 
 	timeout(100);
 	int userInput = getch();
+
 	if (userInput != ERR) {
-		if (userInput == 'q' || userInput == 'Q') {
-			game->gameState = QUIT;
-			return;
-		}
-		else if (userInput == 'r' || userInput == 'R') {
-			game->gameState = PREP;
-			return;
-		}
-		jump(userInput, game);
+			if (userInput == 'q' || userInput == 'Q') {
+				game->gameState = QUIT;
+				return;
+			}
+			else if (userInput == 'r' || userInput == 'R') {
+				game->gameState = PREP;
+				return;
+			}
+			else {
+				jump(userInput, game);
+			}
 	}
+
 	refresh();
 }
 

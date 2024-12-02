@@ -1,9 +1,5 @@
 ﻿#include "functions.h"
 
-static double getCurrentTimeInMs() {
-	return (double)clock() / (CLOCKS_PER_SEC / 1000);
-}
-
 void initCurses() {
 	initscr();
 	noecho();
@@ -37,12 +33,14 @@ void initGame(Game* g) {
 	for (int i = 0; i < ROADSCOUNT; i++) {
 		g->cars[i].coordinates.x = 0;
 		g->cars[i].direction = 1;
+		g->cars[i].lastMoved = getCurrentTimeInMs();
 	}
 	memset(g->assets.blocadePrint, ' ', sizeof(g->assets.blocadePrint));
 	memset(g->assets.frogPrint, ' ', sizeof(g->assets.frogPrint));
 	memset(g->assets.carPrint, ' ', sizeof(g->assets.carPrint));
 	memset(g->assets.grassPrint, ' ', sizeof(g->assets.grassPrint));
 	memset(g->assets.roadPrint, ' ', sizeof(g->assets.roadPrint));
+	g->lastMove= getCurrentTimeInMs();
 	initTimer(g);
 }
 
@@ -58,20 +56,20 @@ int checkForJumpCooldown(Frog* frog) {
 }
 
 bool canJump(Game game, int userInput) {
-	int ny = game.frog.coordinates.y,
-		nx = game.frog.coordinates.x;
+	int newY = game.frog.coordinates.y,
+		newX = game.frog.coordinates.x;
 
 	switch (userInput) {
-	case KEY_UP: ny--; break;
-	case KEY_DOWN: ny++; break;
-	case KEY_LEFT: nx--; break;
-	case KEY_RIGHT: nx++; break;
+	case KEY_UP: newY--; break;
+	case KEY_DOWN: newY++; break;
+	case KEY_LEFT: newX--; break;
+	case KEY_RIGHT: newX++; break;
 	}
 
-	return (ny >= 0 && ny < GAMEBOARDHEIGHT &&
-		nx >= 0 && nx < GAMEBOARDWIDTH &&
-		game.gameBoard[ny][nx] != game.obstacleCharacter &&
-		game.gameBoard[ny][nx] != 'C');
+	return (newY >= 0 && newY < GAMEBOARDHEIGHT &&
+		newX >= 0 && newX < GAMEBOARDWIDTH &&
+		game.gameBoard[newY][newX] != game.obstacleCharacter &&
+		game.gameBoard[newY][newX] != 'C');
 }
 
 void renderFrogMovement(int prevY, int prevX, int y, int x, Game game)

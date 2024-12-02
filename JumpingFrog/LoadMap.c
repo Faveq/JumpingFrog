@@ -78,8 +78,8 @@ void printFooter() {
 			mvprintw(j, i, " ");
 		}
 	}
-	mvprintw(LINES - 2, 0, "Bartosz Œwierczyñski");
-	mvprintw(LINES - 1, 0, "203825");
+	//mvprintw(LINES - 2, 0, "Bartosz Œwierczyñski");
+	//mvprintw(LINES - 1, 0, "203825");
 	deactivateColor(FOOTER);
 	refresh();
 }

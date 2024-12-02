@@ -1,5 +1,11 @@
 #include "functions.h"
 
+
+double getCurrentTimeInMs() {
+    return (double)clock() / (CLOCKS_PER_SEC / 1000);
+}
+
+
 void initTimer(Game* game) {
     game->mainTimer.timeLimit = 0;
     game->mainTimer.timeLeft = 0;
@@ -30,16 +36,6 @@ void resetTimer(Game* game) {
 }
 
 void updateTime(Game* game) {
-    for (int i = 0; i < ROADSCOUNT; i++)
-    {
-        for (int j = 0; j < game->cars[i].speedMultiplier; j++)
-        {
-           moveCar(game, i);
-        }
-        mvprintw(GAMEBOARDHEIGHT * ASSETHEIGHT, 0, "%d", game->cars[0].speedMultiplier);
-        
-    }
-    
     if (game->mainTimer.isRunning) {
         time_t currentTime = time(NULL);
         double elapsedSeconds = difftime(currentTime, game->mainTimer.startTime);

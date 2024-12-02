@@ -36,6 +36,7 @@ typedef struct {
 	Coordinates coordinates;
 	int direction; // 1 is right, -1 is left
 	int speedMultiplier;
+	time_t lastMoved;
 }Car;
 
 typedef struct {
@@ -70,6 +71,7 @@ typedef struct {
 	char gameBoard[GAMEBOARDHEIGHT][GAMEBOARDWIDTH];
 	Frog frog;
 	Assets assets;
+	time_t lastMove;
 }Game;
 
 
@@ -111,6 +113,7 @@ bool loadMap(char mapName[], Game* game); //loads and display map from a txt fil
 void printFooter();
 
 //MainTimer.c
+double getCurrentTimeInMs();
 void initTimer(Game* game);
 void setTimeLimit(Game* game, int timeLimit);
 void startTimer(Game* game);
