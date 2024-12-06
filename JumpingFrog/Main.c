@@ -55,7 +55,7 @@ int checkForJumpCooldown(Frog* frog) {
 	return 0;
 }
 
-bool canJump(Game game, int userInput) {
+int canJump(Game game, int userInput) {
 	int newY = game.frog.coordinates.y,
 		newX = game.frog.coordinates.x;
 

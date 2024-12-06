@@ -5,6 +5,24 @@ const char* maps[MAPSCOUNT] = {
 	"maps/map2.txt",
 	"maps/map3.txt"
 };
+
+static void printStatus(Game* game, char* message) {
+	int startY = 10;
+	for (int i = 0; i <= COLS; i++)
+	{
+		mvprintw(startY, i, "=");
+		mvprintw(startY + 3, i, "=");
+	}
+	mvprintw(startY + 1, 20, message);
+	mvprintw(startY + 2, 33, "Time left: %d", getTimeLeft(game));
+
+	static int blinkCounter = 0;
+	blinkCounter++;
+
+	if (blinkCounter % 7 < 3) {
+		mvprintw(startY + 4, 38, "R");
+	}
+}
 void handleStartState(Game* game) {
 	double currentTime = getCurrentTimeInMs();
 	double elapsedTime = currentTime - game->lastMove;
@@ -14,12 +32,14 @@ void handleStartState(Game* game) {
 	}
 	updateTime(game);
 
-	if (game->mainTimer.timeLeft % 10 == 5) {
+	
+	if (game->mainTimer.timeLeft % ((MAPSCOUNT - game->mapNumber) * 3) == 0) {
 		for (int i = 0; i < ROADSCOUNT; i++) {
 			randomizeMultiplier(game, i);
 		}
 	}
-	if (elapsedTime > 70)
+	//prevents cars from speeding while button is cliked
+	if (elapsedTime > 50)
 	{
 		for (int i = 0; i < ROADSCOUNT; i++) {
 			moveCar(game, i);
@@ -27,7 +47,7 @@ void handleStartState(Game* game) {
 		game->lastMove = getCurrentTimeInMs();
 	}
 
-	timeout(100);
+	timeout(1);
 	int userInput = getch();
 
 	if (userInput != ERR) {
@@ -50,8 +70,7 @@ void handleStartState(Game* game) {
 void handleWonState(Game* game) {
 	stopTimer(game);
 	clear();
-	mvprintw(7, 15, "YOU HAVE REACHED THE FINISH CONGRATS!!!");
-	mvprintw(8, 25, "press r for next map");
+	printStatus(game,"YOU HAVE REACHED THE FINISH CONGRATS!!!");
 	refresh();
 
 	int userInput = getch();
@@ -66,8 +85,17 @@ void handleWonState(Game* game) {
 void handleLostState(Game* game) {
 	stopTimer(game);
 	clear();
-	mvprintw(7, 10, "YOU LOST");
-	mvprintw(8, 4, "press r for restart");
+	switch (game->lostBy)
+	{
+	case CAR:
+		printStatus(game, "IT'S UNFORTUNATE BUT YOU GOT RUN OVER");
+		break;
+	case TIME:
+		printStatus(game, "YOU SEEMS TOO SLOW, HURRY UP A LITTLE!");
+		break;
+	default:
+		break;
+	}
 	refresh();
 
 	int userInput = getch();
@@ -79,9 +107,14 @@ void handleLostState(Game* game) {
 	}
 }
 
-bool prepareGameResources(Game* game) {
+int prepareGameResources(Game* game) {
 	if (!loadAssets(&game->assets)) {
 		mvprintw(5, 5, "Failed to load assets");
+		return 0;
+	}
+
+	if (!loadSettings(game)) {
+		mvprintw(5, 5, "Failed to load settings");
 		return 0;
 	}
 
@@ -90,10 +123,6 @@ bool prepareGameResources(Game* game) {
 		return 0;
 	}
 
-	if (!loadSettings(game)) {
-		mvprintw(5, 5, "Failed to load settings");
-		return 0;
-	}
 
 	game->gameState = START;
 	for (int i = 0; i < ROADSCOUNT; i++) {

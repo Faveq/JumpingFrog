@@ -66,6 +66,7 @@ int loadAssets(Assets *assets) {
 	FILE* roadFile = fopen("assets/road.txt", "r");
 	if (!roadFile)
 		return 0;
+
 	mapAsset(roadFile, assets->roadPrint);
 	fclose(roadFile);
 	return 1;

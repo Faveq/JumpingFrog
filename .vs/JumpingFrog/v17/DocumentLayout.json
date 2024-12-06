@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\Settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Cars.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\Cars.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -15,24 +11,32 @@
       "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\GameState.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\Settings.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JumpingFrog\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\MainTimer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\MainTimer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\AssetsHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\AssetsHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map1.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\maps\\map1.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\MainTimer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\MainTimer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\maps\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JumpingFrog\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\functions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadSettings.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -41,6 +45,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadMap.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\LoadMap.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\AssetsHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\AssetsHandler.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8E552E23-87CD-498F-B991-F70640249409}|JumpingFrog\\JumpingFrog.vcxproj|solutionrelative:JumpingFrog\\maps\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JumpingFrog\\map3.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\car.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -53,10 +69,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\road.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JumpingFrog\\road.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:JumpingFrog\\map2.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\frog.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -78,17 +90,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 216,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "LoadMap.c",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadMap.c",
               "RelativeDocumentMoniker": "JumpingFrog\\LoadMap.c",
               "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadMap.c",
               "RelativeToolTip": "JumpingFrog\\LoadMap.c",
-              "ViewState": "AgIAADwAAAAAAAAAAAAnwE0AAAALAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAE0AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-17T20:53:55.672Z",
               "IsPinned": true,
@@ -96,45 +108,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "road.txt",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\road.txt",
-              "RelativeDocumentMoniker": "JumpingFrog\\road.txt",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\road.txt",
-              "RelativeToolTip": "JumpingFrog\\road.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-11-30T18:38:56.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Main.c",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Main.c",
               "RelativeDocumentMoniker": "JumpingFrog\\Main.c",
               "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Main.c",
               "RelativeToolTip": "JumpingFrog\\Main.c",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAACMAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAEUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-15T16:35:12.184Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "map1.txt",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map1.txt",
+              "RelativeDocumentMoniker": "JumpingFrog\\maps\\map1.txt",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map1.txt",
+              "RelativeToolTip": "JumpingFrog\\maps\\map1.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-03T19:17:31.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "map2.txt",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map2.txt",
+              "RelativeDocumentMoniker": "JumpingFrog\\maps\\map2.txt",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map2.txt",
+              "RelativeToolTip": "JumpingFrog\\maps\\map2.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-03T19:20:32.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GameState.c",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\GameState.c",
               "RelativeDocumentMoniker": "JumpingFrog\\GameState.c",
               "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\GameState.c",
               "RelativeToolTip": "JumpingFrog\\GameState.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwCQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-12-02T15:51:43.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoadSettings.c",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadSettings.c",
+              "RelativeDocumentMoniker": "JumpingFrog\\LoadSettings.c",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadSettings.c",
+              "RelativeToolTip": "JumpingFrog\\LoadSettings.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-15T23:17:04.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Cars.c",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Cars.c",
+              "RelativeDocumentMoniker": "JumpingFrog\\Cars.c",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Cars.c",
+              "RelativeToolTip": "JumpingFrog\\Cars.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-23T18:45:44.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Settings.txt",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Settings.txt",
               "RelativeDocumentMoniker": "JumpingFrog\\Settings.txt",
@@ -147,20 +199,81 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Cars.c",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Cars.c",
-              "RelativeDocumentMoniker": "JumpingFrog\\Cars.c",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\Cars.c",
-              "RelativeToolTip": "JumpingFrog\\Cars.c",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "map2.txt",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map2.txt",
+              "RelativeDocumentMoniker": "JumpingFrog\\map2.txt",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map2.txt",
+              "RelativeToolTip": "JumpingFrog\\map2.txt",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-11-21T21:39:44.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "functions.h",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\functions.h",
+              "RelativeDocumentMoniker": "JumpingFrog\\functions.h",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\functions.h",
+              "RelativeToolTip": "JumpingFrog\\functions.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-20T21:39:29.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainTimer.c",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\MainTimer.c",
+              "RelativeDocumentMoniker": "JumpingFrog\\MainTimer.c",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\MainTimer.c",
+              "RelativeToolTip": "JumpingFrog\\MainTimer.c",
+              "ViewState": "AgIAACEAAAAAAAAAAAAwwEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-23T18:45:44.139Z",
+              "WhenOpened": "2024-11-19T12:09:38.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "map3.txt",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map3.txt",
+              "RelativeDocumentMoniker": "JumpingFrog\\maps\\map3.txt",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\maps\\map3.txt",
+              "RelativeToolTip": "JumpingFrog\\maps\\map3.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-03T19:21:54.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "AssetsHandler.c",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\AssetsHandler.c",
+              "RelativeDocumentMoniker": "JumpingFrog\\AssetsHandler.c",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\AssetsHandler.c",
+              "RelativeToolTip": "JumpingFrog\\AssetsHandler.c",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-12-02T16:25:59.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "map3.txt",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map3.txt",
+              "RelativeDocumentMoniker": "JumpingFrog\\map3.txt",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map3.txt",
+              "RelativeToolTip": "JumpingFrog\\map3.txt",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-11-21T21:47:41.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "printElements.c",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\printElements.c",
               "RelativeDocumentMoniker": "JumpingFrog\\printElements.c",
@@ -172,69 +285,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "functions.h",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\functions.h",
-              "RelativeDocumentMoniker": "JumpingFrog\\functions.h",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\functions.h",
-              "RelativeToolTip": "JumpingFrog\\functions.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-20T21:39:29.831Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "map2.txt",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map2.txt",
-              "RelativeDocumentMoniker": "JumpingFrog\\map2.txt",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map2.txt",
-              "RelativeToolTip": "JumpingFrog\\map2.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "road.txt",
+              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\road.txt",
+              "RelativeDocumentMoniker": "JumpingFrog\\road.txt",
+              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\road.txt",
+              "RelativeToolTip": "JumpingFrog\\road.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-11-21T21:39:44.273Z"
+              "WhenOpened": "2024-11-30T18:38:56.123Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AssetsHandler.c",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\AssetsHandler.c",
-              "RelativeDocumentMoniker": "JumpingFrog\\AssetsHandler.c",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\AssetsHandler.c",
-              "RelativeToolTip": "JumpingFrog\\AssetsHandler.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-12-02T16:25:59.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "map3.txt",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map3.txt",
-              "RelativeDocumentMoniker": "JumpingFrog\\map3.txt",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map3.txt",
-              "RelativeToolTip": "JumpingFrog\\map3.txt",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-11-21T21:47:41.002Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainTimer.c",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\MainTimer.c",
-              "RelativeDocumentMoniker": "JumpingFrog\\MainTimer.c",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\MainTimer.c",
-              "RelativeToolTip": "JumpingFrog\\MainTimer.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-19T12:09:38.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "car.txt",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\car.txt",
               "RelativeDocumentMoniker": "JumpingFrog\\car.txt",
@@ -246,20 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LoadSettings.c",
-              "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadSettings.c",
-              "RelativeDocumentMoniker": "JumpingFrog\\LoadSettings.c",
-              "ToolTip": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\LoadSettings.c",
-              "RelativeToolTip": "JumpingFrog\\LoadSettings.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-15T23:17:04.428Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "frog.txt",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\frog.txt",
               "RelativeDocumentMoniker": "JumpingFrog\\frog.txt",
@@ -271,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "blocade.txt",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\blocade.txt",
               "RelativeDocumentMoniker": "JumpingFrog\\blocade.txt",
@@ -283,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "map1.txt",
               "DocumentMoniker": "C:\\Users\\batek\\Documents\\GitHub\\JumpingFrog\\JumpingFrog\\map1.txt",
               "RelativeDocumentMoniker": "JumpingFrog\\map1.txt",

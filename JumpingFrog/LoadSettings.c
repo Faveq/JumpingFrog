@@ -1,6 +1,6 @@
 #include "functions.h"
 
-bool loadSettings(Game *game) {
+int loadSettings(Game *game) {
     FILE* file = fopen("Settings.txt", "r");  
     if (file) {
         int timeLimit = 0;

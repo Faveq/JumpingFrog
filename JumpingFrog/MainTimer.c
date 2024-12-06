@@ -44,6 +44,7 @@ void updateTime(Game* game) {
         if (game->mainTimer.timeLeft <= 0) {
             game->mainTimer.timeLeft = 0;
             game->mainTimer.isRunning = 0;
+            game->lostBy = TIME;
             game->gameState = LOST;
         }
 
@@ -60,6 +61,6 @@ int isTimerRunning(Game* game) {
 }
 
 void printTimer(Game* game) {
-    mvprintw(GAMEBOARDHEIGHT * ASSETHEIGHT + 1, 1, "Time left: %02d", game->mainTimer.timeLeft);
+    mvprintw(GAMEBOARDHEIGHT * ASSETHEIGHT + 1, 0, "Time left: %02d", game->mainTimer.timeLeft);
     refresh();
 }

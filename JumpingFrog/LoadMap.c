@@ -1,6 +1,6 @@
 #include "functions.h"
 
-bool checkForStart(char ch, int x, int y, Game* game) {
+int checkForStart(char ch, int x, int y, Game* game) {
 	if (ch == 'S') {
 		game->frog.coordinates.y = y;
 		game->frog.coordinates.x = x;
@@ -40,7 +40,7 @@ void display(char ch, int y, int x, Game* game, RoadsTracker *roadsTracker) {
 	}
 }
 
-bool loadMap(char mapName[], Game* game) {
+int loadMap(char mapName[], Game* game) {
 	FILE* file = fopen(mapName, "r");
 	RoadsTracker roadsTracker = { .prevLine = 0, .carsNumber = 0 };
 	if (!file) return 0;
@@ -78,8 +78,8 @@ void printFooter() {
 			mvprintw(j, i, " ");
 		}
 	}
-	//mvprintw(LINES - 2, 0, "Bartosz Œwierczyñski");
-	//mvprintw(LINES - 1, 0, "203825");
+	mvprintw(LINES - 2, 0, "Bartosz Œwierczyñski");
+	mvprintw(LINES - 1, 0, "203825");
 	deactivateColor(FOOTER);
 	refresh();
 }

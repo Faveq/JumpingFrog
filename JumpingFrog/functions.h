@@ -9,7 +9,7 @@
 #define GAMEBOARDWIDTH 24
 #define GAMEBOARDHEIGHT 13
 #define MAPSCOUNT 3
-#define ROADSCOUNT 5
+#define ROADSCOUNT 6
 #define ASSETWIDTH 4
 #define ASSETHEIGHT 2
 
@@ -26,6 +26,10 @@ typedef enum {
 	QUIT
 }GameState;
 
+typedef enum {
+	CAR,
+	TIME
+}LostBy;
 
 typedef struct {
 	int x;
@@ -72,6 +76,7 @@ typedef struct {
 	Frog frog;
 	Assets assets;
 	time_t lastMove;
+	LostBy lostBy;
 }Game;
 
 
@@ -89,7 +94,7 @@ void initGame(Game* game);
 int checkForJumpCooldown(Frog* frog);
 void activateColor(int colorPair); //activates given colors
 void deactivateColor(int colorPair); //deactivates given colors
-bool canJump(Game game, int userInput); //checks if the frog can make a jump
+int canJump(Game game, int userInput); //checks if the frog can make a jump
 void renderFrogMovement(int prevY, int prevX, int y, int x, Game game);
 void jump(int userInput, Game* game); //used for frog movement
 void checkForFinish(Game* game); //checks if player reached the finish
@@ -99,17 +104,17 @@ int main();
 void handleStartState(Game* game);
 void handleWonState(Game* game);
 void handleLostState(Game* game);
-bool prepareGameResources(Game* game);
+int prepareGameResources(Game* game);
 void handlePrepState(Game* game);
 void handleGameStates(Game* game);
 
 //LoadSettings.c
-bool loadSettings(Game* game); //loads and applies settings from txt file
+int loadSettings(Game* game); //loads and applies settings from txt file
 
 //LoadMap.c
-bool checkForStart(char ch, int x, int y, Game* game); //checks if loaded field is a start field
+int checkForStart(char ch, int x, int y, Game* game); //checks if loaded field is a start field
 void display(char ch, int y, int x, Game* game, RoadsTracker* roadsTracker); //displays loaded char with appropriate color
-bool loadMap(char mapName[], Game* game); //loads and display map from a txt file
+int loadMap(char mapName[], Game* game); //loads and display map from a txt file
 void printFooter();
 
 //MainTimer.c
