@@ -1,11 +1,11 @@
 #include "functions.h"
 
-void printBlocade(int y, int x, Assets* asset)
+void printBlocade(const int y, const int x, const Assets* asset)
 {
 	print(y, x, asset->blocadePrint);
 }
 
-void printCar(int y, int x, Game* game, int prevX, int carId)
+void printCar(const int y, const int x, const Game* game, const int prevX, const int carId)
 {
 	Car* car = &game->cars[carId];
 
@@ -16,22 +16,22 @@ void printCar(int y, int x, Game* game, int prevX, int carId)
 	print(car->coordinates.y * ASSETHEIGHT, car->coordinates.x*ASSETWIDTH, game->assets.carPrint);
 }
 
-void printFrog(int y, int x, Assets* asset)
+void printFrog(const int y, const int x, const Assets* asset)
 {
 	print(y, x, asset->frogPrint);
 }
 
-void printRoad(int y, int x, Assets* printables)
+void printRoad(const int y, const int x, const Assets* printables)
 {
 	print(y, x, printables->roadPrint);
 }
 
-void printGrass(int y, int x, Assets* printables)
+void printGrass(const int y, const int x, const Assets* printables)
 {
 	print(y, x, printables->grassPrint);
 }
 
-void print(int y, int x, char asset[ASSETHEIGHT][ASSETWIDTH]) {
+void print(const int y, const int x, const char asset[ASSETHEIGHT][ASSETWIDTH]) {
 	int countX = 0, countY = 0;
 	for (int i = y; i < y + ASSETHEIGHT; i++, countY++)
 	{
@@ -73,6 +73,7 @@ int loadAssets(Assets *assets) {
 
 }
 
+//mapping dowloaded assets into their arrays
 void mapAsset(FILE* file, char asset[ASSETHEIGHT][ASSETWIDTH]) {
 	int x = 0, y = 0, ch;
 

@@ -1,6 +1,5 @@
 #include "functions.h"
 
-
 double getCurrentTimeInMs() {
     return (double)clock() / (CLOCKS_PER_SEC / 1000);
 }
@@ -13,7 +12,7 @@ void initTimer(Game* game) {
     game->mainTimer.startTime = 0;
 }
 
-void setTimeLimit(Game* game, int timeLimit) {
+void setTimeLimit(Game* game, const int timeLimit) {
     game->mainTimer.timeLimit = timeLimit;
     game->mainTimer.timeLeft = timeLimit;
 }
@@ -52,15 +51,15 @@ void updateTime(Game* game) {
     }
 }
 
-int getTimeLeft(Game* game) {
+int getTimeLeft(const Game* game) {
     return game->mainTimer.timeLeft;
 }
 
-int isTimerRunning(Game* game) {
+int isTimerRunning(const Game* game) {
     return game->mainTimer.isRunning;
 }
 
-void printTimer(Game* game) {
+void printTimer(const Game* game) {
     mvprintw(GAMEBOARDHEIGHT * ASSETHEIGHT + 1, 0, "Time left: %02d", game->mainTimer.timeLeft);
     refresh();
 }

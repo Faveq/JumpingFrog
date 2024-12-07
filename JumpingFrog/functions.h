@@ -92,11 +92,11 @@ typedef struct {
 void initCurses();
 void initGame(Game* game);
 int checkForJumpCooldown(Frog* frog);
-void activateColor(int colorPair); //activates given colors
-void deactivateColor(int colorPair); //deactivates given colors
-int canJump(Game game, int userInput); //checks if the frog can make a jump
-void renderFrogMovement(int prevY, int prevX, int y, int x, Game game);
-void jump(int userInput, Game* game); //used for frog movement
+void activateColor(const int colorPair); //activates given colors
+void deactivateColor(const int colorPair); //deactivates given colors
+int canJump(Game game, const int userInput); //checks if the frog can make a jump
+void renderFrogMovement(const int prevY, const int prevX, const int y, const int x, Game game);
+void jump(const int userInput, Game* game); //used for frog movement
 void checkForFinish(Game* game); //checks if player reached the finish
 int main();
 
@@ -107,45 +107,47 @@ void handleLostState(Game* game);
 int prepareGameResources(Game* game);
 void handlePrepState(Game* game);
 void handleGameStates(Game* game);
+void printMessage(const Game* game, const char* message);
+void printBlinkingMessage(const int startY, const char* message);
 
 //LoadSettings.c
 int loadSettings(Game* game); //loads and applies settings from txt file
 
 //LoadMap.c
-int checkForStart(char ch, int x, int y, Game* game); //checks if loaded field is a start field
-void display(char ch, int y, int x, Game* game, RoadsTracker* roadsTracker); //displays loaded char with appropriate color
-int loadMap(char mapName[], Game* game); //loads and display map from a txt file
+int checkForStart(const char ch, const int x, const int y, Game* game); //checks if loaded field is a start field
+void display(const char ch, const int y, const int x, Game* game, RoadsTracker* roadsTracker); //displays loaded char with appropriate color
+int loadMap(const char mapName[], Game* game); //loads and display map from a txt file
 void printFooter();
 
 //MainTimer.c
 double getCurrentTimeInMs();
 void initTimer(Game* game);
-void setTimeLimit(Game* game, int timeLimit);
+void setTimeLimit(Game* game, const int timeLimit);
 void startTimer(Game* game);
 void stopTimer(Game* game);
 void resetTimer(Game* game);
 void updateTime(Game* game);
-int getTimeLeft(Game* game);
-int isTimerRunning(Game* game);
-void printTimer(Game* game);
+int getTimeLeft(const Game* game);
+int isTimerRunning(const Game* game);
+void printTimer(const Game* game);
 
 //Cars.c
-int choose_random(int firstCoord, int secondCoord); //chooses random coordinate between the two
-void radomizeStartSite(Game* game, int carId);
-void moveCar(Game* game, int carId);
+int chooseBetween(const int firstCoord, const int secondCoord); //chooses random coordinate between the two
+void radomizeStartSite(Game* game, const int carId);
+void moveCar(Game* game, const int carId);
 void toggleCarDirection(Car* car);
-int checkForColision(Game* game, int carId);
-void randomizeMultiplier(Game* game, int carId);
-void setUpCar(Game* game, int carId);
+int checkForColision(Game* game, const int carId);
+void randomizeMultiplier(Game* game, const int carId);
+void setUpCar(Game* game, const int carId);
 
 //AssetsHandler.c
 int loadAssets(Assets* printables); //Loads assets from files
 void mapAsset(FILE* file, char printable[ASSETHEIGHT][ASSETWIDTH]); //Maps assets into arrays
-void printBlocade(int y, int x, Assets* printables);
-void printCar(int y, int x, Game* game, int prevX, int carId);
-void printFrog(int y, int x, Assets* printables);
-void printRoad(int y, int x, Assets* printables);
-void printGrass(int y, int x, Assets* printables);
-void print(int y, int x, char printable[ASSETHEIGHT][ASSETWIDTH]); //General printing function
+void printBlocade(const int y, const int x, const Assets* printables);
+void printCar(const int y, const int x, const Game* game, const int prevX, const int carId);
+void printFrog(const int y, const int x, const Assets* printables);
+void printRoad(const int y, const int x, const Assets* printables);
+void printGrass(const int y, const int x, const Assets* printables);
+void print(const int y, const int x, const char printable[ASSETHEIGHT][ASSETWIDTH]); //General printing function
 
 #endif

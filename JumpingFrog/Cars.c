@@ -1,16 +1,16 @@
 #include "functions.h"
 
-int choose_random(int firstCoord, int secondCoord) {
+int chooseBetween(const int firstCoord, const int secondCoord) {
 	int choice = rand() % 2;
 	return (choice == 0) ? firstCoord : secondCoord;
 }
 
-void radomizeStartSite(Game* game, int carId) {
-	game->cars[carId].coordinates.x = choose_random(0, GAMEBOARDWIDTH - 1);
+void radomizeStartSite(Game* game, const int carId) {
+	game->cars[carId].coordinates.x = chooseBetween(0, GAMEBOARDWIDTH - 1);
 	checkForColision(game, carId);
 }
 
-void moveCar(Game* game, int carId) {
+void moveCar(Game* game, const int carId) {
 	int prevX = game->cars[carId].coordinates.x;
 	double defaultTime = 350;
 	double currentTime = getCurrentTimeInMs();
@@ -57,7 +57,7 @@ void toggleCarDirection(Car* car) {
 	car->direction *= (-1);
 }
 
-int checkForColision(Game* game, int carId) {
+int checkForColision(Game* game, const int carId) {
 	if (game->cars[carId].coordinates.x == game->frog.coordinates.x && game->cars[carId].coordinates.y == game->frog.coordinates.y)
 	{
 		game->lostBy = CAR;
@@ -65,13 +65,11 @@ int checkForColision(Game* game, int carId) {
 	}
 }
 
-void randomizeMultiplier(Game* game, int carId) {
+void randomizeMultiplier(Game* game, const int carId) {
 	game->cars[carId].speedMultiplier = rand() % game->difficultyLevel * (game->mapNumber + 1) + 3;
-	refresh();
 }
 
-void setUpCar(Game* game, int carId) {
+void setUpCar(Game* game, const int carId) {
 	radomizeStartSite(game, carId);
 	randomizeMultiplier(game, carId);
-
 }

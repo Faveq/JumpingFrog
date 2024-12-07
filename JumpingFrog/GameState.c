@@ -6,23 +6,41 @@ const char* maps[MAPSCOUNT] = {
 	"maps/map3.txt"
 };
 
-static void printStatus(Game* game, char* message) {
+static void printMessage(const Game* game, const char* message) {
+	//index of printing start
 	int startY = 10;
+
 	for (int i = 0; i <= COLS; i++)
 	{
 		mvprintw(startY, i, "=");
 		mvprintw(startY + 3, i, "=");
 	}
+
 	mvprintw(startY + 1, 20, message);
 	mvprintw(startY + 2, 33, "Time left: %d", getTimeLeft(game));
+	printBlinkingMessage(startY, "R");
+}
 
+void printBlinkingMessage(const int startY, const char* message) {
 	static int blinkCounter = 0;
+
 	blinkCounter++;
 
 	if (blinkCounter % 7 < 3) {
-		mvprintw(startY + 4, 38, "R");
+		mvprintw(startY + 4, 38, message);
 	}
 }
+
+void handleUserDecisison(Game* game) {
+	int userInput = getch();
+	if (userInput == 'r' || userInput == 'R') {
+		game->gameState = PREP;
+	}
+	else if (userInput == 'q' || userInput == 'Q') {
+		game->gameState = QUIT;
+	}
+}
+
 void handleStartState(Game* game) {
 	double currentTime = getCurrentTimeInMs();
 	double elapsedTime = currentTime - game->lastMove;
@@ -38,8 +56,9 @@ void handleStartState(Game* game) {
 			randomizeMultiplier(game, i);
 		}
 	}
+
 	//prevents cars from speeding while button is cliked
-	if (elapsedTime > 50)
+	if (elapsedTime > 1)
 	{
 		for (int i = 0; i < ROADSCOUNT; i++) {
 			moveCar(game, i);
@@ -70,16 +89,10 @@ void handleStartState(Game* game) {
 void handleWonState(Game* game) {
 	stopTimer(game);
 	clear();
-	printStatus(game,"YOU HAVE REACHED THE FINISH CONGRATS!!!");
+	printMessage(game,"YOU HAVE REACHED THE FINISH CONGRATS!!!");
 	refresh();
 
-	int userInput = getch();
-	if (userInput == 'r' || userInput == 'R') {
-		game->gameState = PREP;
-	}
-	else if (userInput == 'q' || userInput == 'Q') {
-		game->gameState = QUIT;
-	}
+	handleUserDecisison(game);
 }
 
 void handleLostState(Game* game) {
@@ -88,23 +101,17 @@ void handleLostState(Game* game) {
 	switch (game->lostBy)
 	{
 	case CAR:
-		printStatus(game, "IT'S UNFORTUNATE BUT YOU GOT RUN OVER");
+		printMessage(game, "IT'S UNFORTUNATE BUT YOU GOT RUN OVER");
 		break;
 	case TIME:
-		printStatus(game, "YOU SEEMS TOO SLOW, HURRY UP A LITTLE!");
+		printMessage(game, "YOU SEEMS TOO SLOW, HURRY UP A LITTLE!");
 		break;
 	default:
 		break;
 	}
 	refresh();
 
-	int userInput = getch();
-	if (userInput == 'r' || userInput == 'R') {
-		game->gameState = PREP;
-	}
-	else if (userInput == 'q' || userInput == 'Q') {
-		game->gameState = QUIT;
-	}
+	handleUserDecisison(game);
 }
 
 int prepareGameResources(Game* game) {

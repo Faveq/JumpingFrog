@@ -1,4 +1,3 @@
-﻿  Cars.c
-C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Cars.c(52,33): warning C4244: '=': conversion from 'double' to 'time_t', possible loss of data
-C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\Cars.c(66,1): warning C4716: 'checkForColision': must return a value
+﻿  GameState.c
+C:\Users\batek\Documents\GitHub\JumpingFrog\JumpingFrog\GameState.c(66,20): warning C4244: '=': conversion from 'double' to 'time_t', possible loss of data
   JumpingFrog.vcxproj -> C:\Users\batek\Documents\GitHub\JumpingFrog\x64\Debug\JumpingFrog.exe

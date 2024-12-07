@@ -12,11 +12,11 @@ void initCurses() {
 	init_pair(FOOTER, COLOR_BLACK, COLOR_YELLOW);
 }
 
-void activateColor(int colorPair) {
+void activateColor(const int colorPair) {
 	attron(COLOR_PAIR(colorPair));
 }
 
-void deactivateColor(int colorPair) {
+void deactivateColor(const int colorPair) {
 	attroff(COLOR_PAIR(colorPair));
 }
 
@@ -55,7 +55,7 @@ int checkForJumpCooldown(Frog* frog) {
 	return 0;
 }
 
-int canJump(Game game, int userInput) {
+int canJump(Game game, const int userInput) {
 	int newY = game.frog.coordinates.y,
 		newX = game.frog.coordinates.x;
 
@@ -72,7 +72,7 @@ int canJump(Game game, int userInput) {
 		game.gameBoard[newY][newX] != 'C');
 }
 
-void renderFrogMovement(int prevY, int prevX, int y, int x, Game game)
+void renderFrogMovement(const int prevY, const int prevX, const int y, const int x, Game game)
 {
 	if (prevY != -1 && prevX != -1) {
 		char znak = game.gameBoard[prevY][prevX];
@@ -103,7 +103,7 @@ void renderFrogMovement(int prevY, int prevX, int y, int x, Game game)
 	}
 }
 
-void jump(int userInput, Game* game) {
+void jump(const int userInput, Game* game) {
 	if (checkForJumpCooldown(&game->frog))
 	{
 		int prevY = game->frog.coordinates.y;
